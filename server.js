@@ -20,4 +20,6 @@ server.get('*', (req, res) => {
   })
 })
 
-server.listen(8080)
+server.listen(8080, () => {
+  console.log('服务器已启动')
+})

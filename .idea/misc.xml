@@ -69,4 +69,7 @@
       <textMaps />
     </LinkMapSettings>
   </component>
+  <component name="SvnBranchConfigurationManager">
+    <option name="mySupportsUserInfoFilter" value="true" />
+  </component>
 </project>

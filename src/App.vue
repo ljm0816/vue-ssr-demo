@@ -12,7 +12,6 @@
     components: {},
     computed: {},
     beforeMount() {
-
     },
     mounted() {
 

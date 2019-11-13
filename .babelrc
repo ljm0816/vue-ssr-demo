@@ -1,5 +1,13 @@
 {
-  "presets": ["@babel/preset-env"],
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "useBuiltIns": "usage"
+      }
+    ],
+    "es2015"
+  ],
   "plugins": [
     "@babel/plugin-transform-runtime"
   ]

@@ -1,5 +1,6 @@
 const path = require('path')
 const { VueLoaderPlugin } = require('vue-loader')
+const VueSSRServerPlugin = require('vue-server-renderer/server-plugin')
 module.exports = {
     // 此处告知 server bundle 使用Node风格导出模块（Node-style exports）
     target: 'node',
@@ -39,6 +40,7 @@ module.exports = {
       ]
     },
     plugins: [
-      new VueLoaderPlugin()
+      new VueLoaderPlugin(),
+      new VueSSRServerPlugin()
     ]
 }

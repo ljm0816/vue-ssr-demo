@@ -13,6 +13,11 @@ const filePath = path.join(__dirname, './dist/bundle.server.js')
 const code = fs.readFileSync(filePath, 'utf8')
 const renderer = require('vue-server-renderer').createBundleRenderer(code)
 
+process.on('unhandledRejection', error => {
+  // Will print "unhandledRejection err is not defined"
+  console.log('unhandledRejection', error.message);
+});
+
 server.get('*', (req, res) => {
   const context = { url: req.url }
   renderer.renderToString((err, html) => {

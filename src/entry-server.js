@@ -14,7 +14,17 @@ export default (context) => {
         const { app, router } = createApp()
 
         // 设置服务器端router的位置
-        router.push(context.url)
+      console.log('context::', context)
+      // router.push(context.url)
+      // const { url } = context
+      // const { fullPath } = router.resolve(url).route
+      // console.log('context.url::', url, fullPath)
+      //
+      // if (fullPath !== url) {
+      //   // return reject({ url: fullPath })
+      // }
+      // // set router's location
+      // router.push(url)
 
         // 等到router将可能的异步组件和钩子函数解析完
         router.onReady(() => {

@@ -13,10 +13,7 @@
     },
     components: {},
     computed: {},
-    beforeMount() {
-    },
     mounted() {
-
     },
     methods: {}
   }

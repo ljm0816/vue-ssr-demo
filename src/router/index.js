@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-// import Foo from './Foo.vue'
 const Home = () => import('../components/home/index.vue')
 
 Vue.use(Router)

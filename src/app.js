@@ -17,11 +17,11 @@ export function createApp() {
   // 创建 router 实例
   const router = createRouter()
   const app = new Vue({
-      //注入router 到根 Vue实例
-      router,
-      // 根实例简单的渲染应用程序组件
-      render: h => h(App)
+    //注入router 到根 Vue实例
+    router,
+    // 根实例简单的渲染应用程序组件
+    render: h => h(App)
   })
-    // 返回app 和 router
+  // 返回app 和 router
   return { app, router }
 }

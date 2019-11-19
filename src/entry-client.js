@@ -4,10 +4,12 @@
  */
 
 'use strict';
-import { createApp } from './app'
+import { createApp } from './app.js'
 
-// 客户端特定引导逻辑......
-const { app } = createApp()
+// 客户端特定引导逻辑
+const { app, router } = createApp()
 
 //这里假定App.vue 模板中根元素具有‘id="app"’
-app.$mount('#app')
+router.onReady(() => {
+  app.$mount('#app')
+})

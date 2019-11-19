@@ -3,19 +3,28 @@
  * 服务器代码
  */
 
-'use strict';
-
 const path = require('path')
 const fs = require('fs')
 const server = require('express')()
-// const createApp = require('./dist/bundle.server.js')
-const filePath = path.join(__dirname, './dist/bundle.server.js')
-const code = fs.readFileSync(filePath, 'utf8')
-const renderer = require('vue-server-renderer').createBundleRenderer(code)
+const { createBundleRenderer } = require('vue-server-renderer')
+// 服务端执行vue操作
+// const bundle = fs.readFileSync(path.resolve(__dirname, './dist/server.bundle.js'), 'utf8')
+// 记录js文件的内容
+const serverBundle = require(path.resolve(__dirname, './dist/vue-ssr-server-bundle.json'))
+// 记录静态资源文件的配置信息
+const clientManifest = require(path.resolve(__dirname, './dist/vue-ssr-client-manifest.json'))
+// 客户端激活
+const template = fs.readFileSync(path.resolve(__dirname, './index.html'), 'utf8')
+
+const renderer = createBundleRenderer(serverBundle, {
+  runInNewContext: false,
+  template: template,
+  clientManifest: clientManifest
+})
 
 process.on('unhandledRejection', error => {
   // Will print "unhandledRejection err is not defined"
-  console.log('unhandledRejection', error.message);
+  console.log('unhandledRejection', error.message)
 });
 
 server.get('*', (req, res) => {
@@ -28,7 +37,6 @@ server.get('*', (req, res) => {
         res.status(500).end('Internal Server Error')
       }
     } else {
-      console.log(html)
       res.end(html)
     }
   })

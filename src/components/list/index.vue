@@ -1,11 +1,11 @@
 <template>
-<div class="home-wrap">
-    this is home
+<div class="list-warp">
+    this is list
 </div>
 </template>
 
 <script>
-export default {
+  export default {
     data() {
       return {}
     },
@@ -14,11 +14,9 @@ export default {
     },
     components: {},
     methods: {}
-}
+  }
 </script>
 
-<style lang="scss">
-.home-wrap {
+<style lang="scss" scoped>
 
-}
 </style>

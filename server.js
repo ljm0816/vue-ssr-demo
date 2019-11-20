@@ -2,7 +2,7 @@
  * Created on 2019/11/6.
  * 服务器代码
  */
-
+//
 const path = require('path')
 const fs = require('fs')
 const server = require('express')()
@@ -22,10 +22,10 @@ const renderer = createBundleRenderer(serverBundle, {
   clientManifest: clientManifest
 })
 
-process.on('unhandledRejection', error => {
-  // Will print "unhandledRejection err is not defined"
-  console.log('unhandledRejection', error.message)
-});
+// process.on('unhandledRejection', error => {
+//   // Will print "unhandledRejection err is not defined"
+//   console.log('unhandledRejection', error.message)
+// });
 
 server.get('*', (req, res) => {
   const context = { url: req.url }
